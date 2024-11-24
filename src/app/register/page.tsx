@@ -20,7 +20,7 @@ export default function Register() {
         router.push('/login');
       },
       onError: (error: any) => {
-        message.error(error?.response?.data?.message || 'Có lỗi xảy ra khi đăng ký');
+        toast.error('Đăng ký thất bại');
       },
     });
   };

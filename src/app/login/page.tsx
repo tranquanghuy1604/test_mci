@@ -2,18 +2,20 @@
 
 import { useLogin } from '@/api/authApi';
 import { ParamsLogin } from '@/api/registerApi';
+import { loggedState } from '@/recoil/logginState';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input, message } from 'antd';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
+import { useRecoilState } from 'recoil';
 import Cookies from 'universal-cookie';
 
 export default function Register() {
   const cookie = new Cookies();
   const router = useRouter();
   const [form] = Form.useForm();
-  // const [logged, setLogged] = useRecoilState(loggedState);
+  const [logged, setLogged] = useRecoilState(loggedState);
 
   const { mutate: login, isPending } = useLogin();
 
@@ -23,9 +25,11 @@ export default function Register() {
         toast.success('Đăng nhập thành công');
         router.push('/');
         cookie.set('JWT', response?.access_token);
+        setLogged(true);
+        localStorage.setItem('logged', 'true');
       },
       onError: (error: any) => {
-        message.error(error?.response?.data?.message || 'Có lỗi xảy ra khi đăng ký');
+        toast.error('Đăng nhập thất bại');
       },
     });
   };
