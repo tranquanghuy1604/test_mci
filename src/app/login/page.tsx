@@ -38,7 +38,7 @@ export default function Register() {
     <div>
       <div className='flex items-center justify-center min-h-screen bg-gray-100'>
         <div className='bg-white p-8 rounded shadow-md w-full max-w-md'>
-          <h2 className='text-2xl font-bold mb-6 text-center'>Đăng ký tài khoản</h2>
+          <h2 className='text-2xl font-bold mb-6 text-center'>Đăng nhập tài khoản</h2>
 
           <Form
             form={form}

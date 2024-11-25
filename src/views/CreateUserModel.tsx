@@ -58,7 +58,7 @@ function CreateUserModel({ open, onCancel }: CreateUserModelProps) {
     {
       title: '',
       time: '',
-      status_id: listStatus?.results[0].id,
+      status_id: listStatus?.results[0]?.id,
     },
   ]);
 
@@ -239,7 +239,7 @@ function CreateUserModel({ open, onCancel }: CreateUserModelProps) {
               >
                 <Button>
                   {listSource?.results?.find((item: any) => item.id === valueSource)?.title ||
-                    listSource?.results[0].title ||
+                    listSource?.results[0]?.title ||
                     ' '}{' '}
                   <DownOutlined />
                 </Button>
@@ -261,7 +261,7 @@ function CreateUserModel({ open, onCancel }: CreateUserModelProps) {
               >
                 <Button>
                   {listStatus?.results?.find((item: any) => item.id === valueStatus)?.title ||
-                    listStatus?.results[0].title ||
+                    listStatus?.results[0]?.title ||
                     ' '}
                   <DownOutlined />
                 </Button>
@@ -381,7 +381,7 @@ function CreateUserModel({ open, onCancel }: CreateUserModelProps) {
                   >
                     <Button>
                       {listSocial?.results?.find((item: any) => item.id === valueSocial)?.title ||
-                        listSocial?.results[0].title ||
+                        listSocial?.results[0]?.title ||
                         ' '}
                       <DownOutlined />
                     </Button>
